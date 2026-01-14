@@ -1,0 +1,50 @@
+<div class="student-app">
+  <input type="text" placeholder="Fan" [(ngModel)]="filterGrade">
+  <input type="text" placeholder="Baho" [(ngModel)]="filterSubject">
+
+  <button (click)="filterStudentsBySubject()" type="button">Izlash</button>
+
+  <table>
+    <thead>
+    @if (students.length > 0) {
+      <tr>
+        <th>ID</th>
+        <th>Ism</th>
+        <th>Fan</th>
+        <th>Ball</th>
+        <th>Baho</th>
+        <th colspan="2">Amal</th>
+      </tr>
+    }
+    </thead>
+    <tbody>
+      @for (student of students; track $index) {
+        <tr [style.background]="getStyle(student.score)">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.subject }}</td>
+          <td>{{ student.score }}</td>
+          <td>{{ student.grade }}</td>
+          <td>
+            <button  style="margin-right: 10px;" (click)="onStudentDelete(student.id)">O‘chirish</button>
+
+          </td>
+          <td>
+            <button (click)="onStudentUpdate(student.id)">Tahrirlash</button>
+          </td>
+        </tr>
+      }
+     @empty {
+      <tr>
+        <td colspan="3">Talabalar yo‘q</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+  <input style="margin-top: 50px;" type="text" placeholder="Ism" [(ngModel)]="studentName">
+  <input type="text" placeholder="Fan" [(ngModel)]="studentSubject">
+  <input type="number" placeholder="Ball" [(ngModel)]="studentScore">
+  <button (click)="onStudentAdd()" type="button">Qo‘shish</button>
+
+</div>
