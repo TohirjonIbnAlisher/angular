@@ -1,1 +1,24 @@
-<p>student-list works!</p>
+<div class="student-app">
+  <input type="text" placeholder="Fan" [(ngModel)]="filterGrade">
+  <input type="text" placeholder="Baho" [(ngModel)]="filterSubject">
+
+  <button (click)="filterStudentsBySubject()" type="button">Izlash</button>
+
+  <app-student-card
+    [students]="students"
+    (onStudentOperation)="refreshStudents($event)"
+    [name]="studentName"
+    [score]="studentScore"
+    [subject]="studentSubject"
+  ></app-student-card>
+
+  <app-student-form
+    [students]="students"
+    [studentName]="studentName"
+    [studentScore]="studentScore"
+    [studentSubject]="studentSubject"
+    (onStudentOperation)="refreshStudents($event)"
+  ></app-student-form>
+  <button (click)="onStudentAdd()" type="button">Qo‘shish</button>
+
+</div>
