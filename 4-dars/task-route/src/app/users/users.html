@@ -1,0 +1,58 @@
+<div class="student-app">
+  <input type="text" placeholder="Ism" [(ngModel)]="name">
+  <select [(ngModel)]="role">
+    <option value="">Rol tanlang</option>
+    <option [value]="'Admin'">Admin</option>
+    <option [value]="'User'">User</option>
+    <option [value]="'Guest'">Guest</option>
+  </select>
+  <button (click)="onStudentAdd()" type="button">Qo‘shish</button>
+
+  <input class="nameFilter"
+      type="text"
+      placeholder="Ism bo‘yicha qidirish"
+      [(ngModel)]="filterName">
+
+    <select [(ngModel)]="currentRole">
+      <option value="Foydalanuvchi">Barcha rollar</option>
+      <option value="Admin">Admin</option>
+      <option value="User">User</option>
+      <option value="Guest">Guest</option>
+    </select>
+    <button (click)="onStudentFilter()" type="button">Qidirish</button>
+
+
+  <h2 class="user-type">{{currentRole}}lar ro'yxati</h2>
+  <table>
+    <thead>
+    @if (students.length > 0) {
+      <tr>
+        <th>ID</th>
+        <th>Ism</th>
+        <th>Rol</th>
+        <th>Amal</th>
+      </tr>
+    }
+    </thead>
+    <tbody>
+      @for (student of viewUsers; track $index) {
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.role }}</td>
+          <td>
+            <button (click)="onStudentDelete(student.name)">O‘chirish</button>
+            <button (click)="onClickView(student.id)" title="Ko‘rish" style="margin: 0 30px;">
+              👁
+            </button>
+          </td>
+        </tr>
+      }
+     @empty {
+      <tr>
+        <td colspan="3">Foydalanuvchilar mavjud emas</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
