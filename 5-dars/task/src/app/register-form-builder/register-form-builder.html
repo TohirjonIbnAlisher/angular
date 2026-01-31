@@ -1,0 +1,94 @@
+<div class="register-fb-form">
+    <h2>Ro'yxatdan o'tish</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Ism: </label>
+            <input
+                type="text"
+                formControlName="firstname"
+            >
+
+            @if(firstname?.invalid && firstname?.touched)
+            {
+                <div class="error">
+                    @if (firstname?.errors?.['required']) 
+                    {
+                        <span>Ism kiritish majburiy</span>
+                    }
+                    @if(firstname?.errors?.['minlength'])
+                    {
+                        <span>Ism kamida 2 ta belgi bo'lishi kerak</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Familiya: </label>
+            <input
+                type="text"
+                formControlName="lastname"    
+            >
+
+            @if(surname?.invalid && surname?.touched)
+            {
+                <div class="error">
+                    @if(surname?.errors?.['required'])
+                    {
+                        <span>Familiya kamida 2 ta belgi bo'lishi kerak</span>
+                    }
+                    @if(surname?.errors?.['minlength'])
+                    {
+                        <span>Familiya eng kamida 2 ta belgi bo'lishi kerak</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Email: </label>
+            <input
+                type="email"
+                formControlName="email"    
+            >
+
+            @if(email?.invalid && email?.touched)
+            {
+                <div class="error">
+                    @if(email?.errors?.['required'])
+                    {
+                        <span>Email kiritish majburiy</span>
+                    }
+                    @if(email?.errors?.['email'])
+                    {
+                        <span>Email formati xato</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Parol: </label>
+            <input
+                type="password"
+                formControlName="password"
+            >
+
+            @if(password?.invalid && password?.touched)
+            {
+                <div class="error">
+                    @if (password?.errors?.['required']) {
+                        <span>Parol kiritish majburiy</span>
+                    }
+                    @if(password?.errors?.['minlength'])
+                    {
+                        <span>Parol kamida 8 ta belgidan iborat bo'lishi kerak</span>
+                    }
+                </div>
+            }
+        </div>
+        
+        <button type="submit">Ro'yxatdan o'tish</button>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="header">
+        <h2>📝 Todo List</h2>
+        <button class="add-btn" (click)="openAddForm()">+ Qo‘shish</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nomi</th>
+                <th>Yaratilgan</th>
+                <th>Bajarish vaqti</th>
+                <th>Holati</th>
+                <th>Amallar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (todo of todos; track todo.id) {
+                <tr>
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.createdDate }}</td>
+                    <td>{{ todo.operationTime}}</td>
+                    <td>
+                        <span>
+                            {{ todo.isDone ? 'Bajarilgan' : 'Bajarilmagan' }}
+                        </span>
+                    </td>
+                    <td class="actions">
+                        <button class="edit" (click)="openEditForm(todo)">✏️</button>
+                        <button class="delete" (click)="remove(todo)">🗑</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

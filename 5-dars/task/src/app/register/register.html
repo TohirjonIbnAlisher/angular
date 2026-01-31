@@ -1,0 +1,116 @@
+<div class="register-form">
+    <h2>Ro'yxatdan o'tish</h2>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Ism</label>
+            <input
+                type="text"
+                [(ngModel)]="firstname"
+                name="name"
+                #nameField="ngModel"
+                placeholder="Ismingizni kiriting ..."
+                required
+                minlength="2"
+            >
+
+            @if(nameField?.invalid && (nameField?.touched || nameField?.dirty))
+            {
+                <div class="error">
+                    @if(nameField?.errors?.['required'])
+                    {
+                        <span> Ism kiritish majburiy </span>
+                    }
+                    @if(nameField?.errors?.['minlength'])
+                    {
+                        <span> Ism kamida 2 ta belgi bo'lishi kerak </span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Familiya</label>
+            <input
+                type="text"
+                [(ngModel)]="lastname"
+                name="surname"
+                #lastNameField="ngModel"
+                placeholder="Familiyangizni kiriting ..."
+                required
+                minlength="2"
+            >
+
+            @if(lastNameField.invalid && (lastNameField.touched || lastNameField.dirty))
+            {
+                <div class="error">
+                    @if(lastNameField?.errors?.['required']){
+                        <span>Familiya kiritish majburiy</span>
+                    }
+                    @if(lastNameField?.errors?.['minlength'])
+                    {
+                        <span>Familiya uzunligi kamida 2 ta belgi bo'lishi kerak</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Email: </label>
+            <input
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                #emailField="ngModel"
+                placeholder="Email kiriting ..."
+                required
+                email
+            >
+
+            @if(emailField?.invalid && (emailField?.touched || emailField?.dirty))
+            {
+                <div class="error">
+                    @if(emailField?.errors?.['required'])
+                    {
+                        <span>Email kiritish majburiy</span>
+                    }
+                    @if(emailField?.errors?.['email'])
+                    {
+                        <span>Email formati noto'g'ri</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Parol: </label>
+            <input
+                type="password"
+                [(ngModel)]="password"
+                name="password"
+                #passwordField="ngModel"
+                placeholder="Parol kiriting ..."
+                required
+                minlength="8"
+            >
+
+            @if(passwordField?.invalid && (passwordField?.touched || passwordField.dirty))
+            {
+                <div class="error">
+                    @if(passwordField?.errors?.['required'])
+                    {
+                        <span>Parol kiritish majburiy</span>
+                    }
+                    @if(passwordField?.errors?.['minlength'])
+                    {
+                        <span>Parol kamida 8 ta belgidan iborat bo'lishi kerak</span>
+                    }
+                </div>
+            }
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid">
+      Yuborish
+    </button>
+    </form>
+</div>
