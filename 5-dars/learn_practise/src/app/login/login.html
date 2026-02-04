@@ -1,0 +1,59 @@
+<div class="login-form">
+  <h2> Tizimga kirish </h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label> Username: </label>
+
+      <input
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        #userNameField="ngModel"
+        required
+        minlength="3"
+        maxlength="4"
+        placeholder="Username kiriting">
+
+        @if(userNameField.invalid && userNameField.touched){
+          <div class="error">
+            @if(userNameField.errors?.['required']){
+              <span> Ism majburiy </span>
+            }
+
+          </div>
+        }
+    </div>
+
+    <div class="form-group">
+      <label> Parol: </label>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        #passwordField="ngModel"
+        required
+        placeholder="Parol kiriting">
+
+         @if(passwordField.invalid && passwordField.touched){
+          <div class="error">
+            @if(passwordField.errors?.['required']){
+              <span> Parol majburiy </span>
+            }
+
+          </div>
+        }
+
+    </div>
+
+    <button type="submit"> Kirish </button>
+
+  </form>
+
+  <div class="debug">
+      <p> Username: {{username}} </p>
+      <p> Password: {{password}} </p>
+  </div>
+
+</div>

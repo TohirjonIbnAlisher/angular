@@ -1,0 +1,91 @@
+/* Sahifani markazga joylash */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login forma konteyneri */
+.login-form {
+  background: #ffffff;
+  margin: 100px auto;
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Sarlavha */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input guruh */
+.form-group {
+  margin-bottom: 18px;
+}
+
+/* Label */
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Inputlar */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Focus bo‘lganda */
+.form-group input:focus {
+  border-color: #667eea;
+}
+
+/* Error blok */
+.error {
+  margin-top: 6px;
+  color: #e74c3c;
+  font-size: 13px;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Button hover */
+button[type="submit"]:hover {
+  background: #5a67d8;
+}
+
+/* Debug qismi */
+.debug {
+  margin-top: 20px;
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #333;
+}
