@@ -1,0 +1,25 @@
+<section class="py-8 bg-[#F8FAFB] border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      @for(stat of stats; track $index){
+
+      <div class="flex items-center gap-3 justify-center lg:justify-start">
+
+        <div class="w-10 h-10 bg-[#00C853]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">{{ stat.icon }}</span>
+        </div>
+
+        <span class="text-gray-700 font-medium text-sm sm:text-base">
+          {{ stat.text }}
+        </span>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+</section>

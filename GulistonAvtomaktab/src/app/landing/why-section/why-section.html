@@ -1,0 +1,53 @@
+<section id="why" class="py-20 bg-white">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="text-center mb-16">
+
+<h2 class="text-4xl sm:text-5xl font-bold text-[#0A2647] mb-4">
+  Nima uchun Guliston Avtomaktab?
+</h2>
+
+<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+  O'zbekistondagi eng zamonaviy va samarali haydovchilik nazariyasi platformasi
+</p>
+
+</div>
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+@for(feature of features; track $index)
+{
+
+  <div
+  class="group relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-[#00C853] transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+  >
+
+    <div
+      class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+      [class]="feature.color"
+    >
+
+  <span class="text-3xl text-white">
+  {{ feature.icon }}
+  </span>
+
+  </div>
+
+  <h3 class="text-2xl font-bold text-[#0A2647] mb-4">
+  {{ feature.title }}
+  </h3>
+
+  <p class="text-gray-600 leading-relaxed">
+  {{ feature.description }}
+  </p>
+
+  </div>
+
+}
+
+</div>
+
+</div>
+
+</section>

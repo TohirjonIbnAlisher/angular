@@ -1,0 +1,80 @@
+<section class="py-20 bg-gradient-to-br from-[#0A2647] via-[#0A2647] to-[#051526] relative overflow-hidden">
+      <!--Background Image-->
+      <div class="absolute inset-0 opacity-10">
+        <img
+          src="https://images.unsplash.com/photo-1708605879140-39761b6a5842?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXNoa2VudCUyMGNpdHklMjBzdHJlZXQlMjBtb2Rlcm58ZW58MXx8fHwxNzcyODc0NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Tashkent"
+        />
+      </div>
+
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-[#00C853]/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="text-center mb-12">
+
+          <div class="inline-flex items-center gap-2 bg-[#00C853]/20 backdrop-blur-sm border border-[#00C853]/30 rounded-full px-4 py-2 mb-6">
+            <div class="w-2 h-2 bg-[#00C853] rounded-full animate-pulse"></div>
+            <span class="text-sm font-medium text-[#00C853]">
+              Chegirma: Birinchi 100 ta o'quvchiga 50% chegirma!
+            </span>
+          </div>
+
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Bugun haydovchilik guvohnomasiga
+            <span class="text-[#00C853]">birinchi qadam</span> qo'ying!
+          </h2>
+
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            5000+ o'quvchi AvtoMaktab orqali muvaffaqiyatga erishdi. Navbat
+            sizda!
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
+          @for(benefit of benefits; track benefit) {
+              <div
+                class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4"
+                >
+                <span class="w-6 h-6 text-[#00C853] flex-shrink-0">✓</span>
+                <span class="text-white">{{ benefit }}</span>
+              </div>
+          }
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+
+          <button class="bg-[#00C853] hover:bg-[#00A844] text-white px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-[#00C853]/50 transition-all hover:scale-105 group flex items-center gap-2">
+            Ro'yxatdan o'tish
+          </button>
+
+          <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-xl font-bold text-xl border-2 border-white/30 hover:border-white/50 transition-all">
+            Bepul testni sinab ko'ring
+          </button>
+
+        </div>
+
+
+        <div class="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80">
+
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 text-[#00C853]">✓</span>
+            <span>To'lov kartasi talab qilinmaydi</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 text-[#00C853]">✓</span>
+            <span>Istalgan vaqtda bekor qilish mumkin</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 text-[#00C853]">✓</span>
+            <span>24/7 qo'llab-quvvatlash</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
