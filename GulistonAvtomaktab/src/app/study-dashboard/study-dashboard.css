@@ -1,0 +1,20 @@
+/* Add Tailwind classes already applied, plus extra hover transition for shine */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  transition: all 0.7s ease;
+}
+
+button:hover::after {
+  left: 125%;
+}

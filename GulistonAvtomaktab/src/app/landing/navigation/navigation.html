@@ -1,128 +1,119 @@
 <nav
-class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-[class.bg-white/95]="isScrolled"
-[class.backdrop-blur-md]="isScrolled"
-[class.shadow-md]="isScrolled"
-[class.bg-white/80]="!isScrolled"
-[class.backdrop-blur-sm]="!isScrolled"
->
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    [class.bg-white/95]="isScrolled"
+    [class.backdrop-blur-md]="isScrolled"
+    [class.shadow-md]="isScrolled"
+    [class.bg-white/80]="!isScrolled"
+    [class.backdrop-blur-sm]="!isScrolled"
+    >
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-20">
 
-<!-- Logo -->
+            <!-- Logo -->
 
-<div class="flex items-center gap-2 cursor-pointer group">
+            <div class="flex items-center gap-2 cursor-pointer group">
 
-<div class="bg-[#0A2647] p-2 rounded-lg group-hover:bg-[#051526] transition-colors text-white text-xl">
-🚗
-</div>
+                <div class="bg-[#0A2647] p-2 rounded-lg group-hover:bg-[#051526] transition-colors text-white text-xl">
+                    🚗
+                </div>
 
-<span class="text-2xl font-bold text-[#0A2647]">
-Guliston Avtomaktab
-</span>
+                <span class="text-2xl font-bold text-[#0A2647]">
+                    Guliston Avtomaktab
+                </span>
 
-</div>
+            </div>
 
-<!-- Desktop Menu -->
+            <!-- Desktop Menu -->
 
-<div class="hidden lg:flex items-center gap-8">
+            <div class="hidden lg:flex items-center gap-8">
 
-@for(item of menuItems; track item.label){
+                @for(item of menuItems; track item.label){
 
-<a
-href="{{item.href}}"
-class="text-gray-700 hover:text-[#0A2647] transition-colors font-medium"
->
+                    <a
+                        [routerLink]="item.href"
+                        class="text-gray-700 hover:text-[#0A2647] transition-colors font-medium"
+                    >
 
-{{item.label}}
+                        {{item.label}}
 
-</a>
+                    </a>
 
-}
+                }
 
-</div>
+            </div>
 
-<!-- Desktop Buttons -->
+            <!-- Desktop Buttons -->
 
-<div class="hidden lg:flex items-center gap-3">
+            <div class="hidden lg:flex items-center gap-3">
 
-<button
-class="bg-[#0A2647] hover:bg-[#051526] text-white px-6 py-2 rounded-lg"
->
+                <button class="bg-[#0A2647] hover:bg-[#051526] text-white px-6 py-2 rounded-lg"                
+                    [routerLink]="'/login'"
+                >
+                    Kirish
 
-Kirish
+                </button>
 
-</button>
+            </div>
 
-</div>
+            <!-- Mobile Menu Button -->
 
-<!-- Mobile Menu Button -->
+            <button
+            class="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+            (click)="toggleMenu()"
+            >
 
-<button
-class="lg:hidden p-2 rounded-lg hover:bg-gray-100"
-(click)="toggleMenu()"
->
+            @if(isMobileMenuOpen){
+            ✖
+            } @else {
+            ☰
+            }
 
-@if(isMobileMenuOpen){
-✖
-} @else {
-☰
-}
+            </button>
 
-</button>
+        </div>
 
-</div>
+        <!-- Mobile Menu -->
 
-<!-- Mobile Menu -->
+        @if(isMobileMenuOpen){
 
-@if(isMobileMenuOpen){
+            <div class="lg:hidden py-4 border-t border-gray-200">
 
-<div class="lg:hidden py-4 border-t border-gray-200">
+            <div class="flex flex-col gap-4">
 
-<div class="flex flex-col gap-4">
+            @for(item of menuItems; track item.label){
 
-@for(item of menuItems; track item.label){
+                <a
+                    [routerLink]="item.href"
+                    class="text-gray-700 hover:text-[#0A2647] transition-colors font-medium px-2 py-2"
+                    (click)="closeMenu()"
+                >
 
-<a
-href="{{item.href}}"
-class="text-gray-700 hover:text-[#0A2647] transition-colors font-medium px-2 py-2"
-(click)="closeMenu()"
->
+                    {{item.label}}
 
-{{item.label}}
+                </a>
 
-</a>
+            }
 
-}
+            <div class="flex flex-col gap-2 pt-4 border-t border-gray-200">
 
-<div class="flex flex-col gap-2 pt-4 border-t border-gray-200">
+                <button
+                    class="w-full border border-[#0A2647] text-[#0A2647] py-2 rounded-lg"
+                >
 
-<button
-class="w-full border border-[#0A2647] text-[#0A2647] py-2 rounded-lg"
->
+                    Kirish
 
-Kirish
+                </button>
 
-</button>
+            </div>
 
-<button
-class="w-full bg-[#0A2647] hover:bg-[#051526] text-white py-2 rounded-lg"
->
+            </div>
 
-Ro'yxatdan o'tish
+            </div>
 
-</button>
+            }
 
-</div>
-
-</div>
-
-</div>
-
-}
-
-</div>
+        </div>
 
 </nav>

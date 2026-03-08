@@ -1,0 +1,203 @@
+<div class="min-h-screen w-full relative overflow-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 z-0">
+
+    <div
+      class="absolute inset-0 bg-cover bg-center blur-3xl scale-110"
+      style="background-image:url('https://images.unsplash.com/photo-1748356804416-c31b303000c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920')"
+    ></div>
+
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0A2647]/60 via-[#0A2647]/40 to-[#00C853]/20"></div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="backdrop-blur-md bg-white/10 border-b border-white/20 px-6 py-4">
+
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+        <div class="flex items-center gap-3">
+
+          <div class="w-12 h-12 bg-gradient-to-br from-[#0A2647] to-[#00C853] rounded-xl flex items-center justify-center">
+
+            <lucide-icon [img]="icons.Car" class="text-white w-6 h-6"></lucide-icon>
+
+          </div>
+
+          <div>
+
+            <h1 class="text-2xl font-bold text-white">Guliston Avtomaktab</h1>
+
+            <p class="text-xs text-white/80">Nazariy Imtihon Platformasi</p>
+
+          </div>
+
+        </div>
+
+       <div class="flex items-center gap-4">
+
+            <button class="relative w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+
+                <lucide-icon [img]="icons.Bell" class="text-white w-5 h-5"></lucide-icon>
+
+                <!-- Notification badge -->
+                <span class="absolute -top-0 -right-0 bg-green-500 text-sm font-semibold w-6 h-6 rounded-full flex items-center justify-center text-white">
+                    3
+                </span>
+
+            </button>
+
+            <img
+                src="https://images.unsplash.com/photo-1668156360703-ea8244bbc5bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200"
+                class="w-12 h-12 rounded-full object-cover ring-2 ring-white"
+            />
+
+    </div>
+
+      </div>
+
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-1 flex items-center justify-center px-4 py-10">
+
+      <div class="w-full max-w-5xl">
+
+        <!-- badge -->
+        <div class="flex justify-center mb-6">
+
+          <div class="bg-white px-6 py-3 rounded-full shadow flex items-center gap-2">
+
+            <lucide-icon [img]="icons.Sparkles" class="text-green-500"></lucide-icon>
+
+            <span class="font-semibold text-[#0A2647]">
+              95% o'quvchilar muvaffaqiyatli topshirmoqda
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white rounded-[40px] shadow-2xl p-8 space-y-8">
+
+          <!-- top buttons -->
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            <button class="bg-gradient-to-br from-[#0A2647] to-[#144272] rounded-2xl p-8 text-white flex items-center gap-4">
+
+              <lucide-icon [img]="icons.Car" class="w-8 h-8"></lucide-icon>
+
+              <div class="flex-1 text-left">
+
+                <h3 class="text-xl font-bold">Test Bot</h3>
+
+                <p class="text-sm text-white/80">Telegram botda test topshiring</p>
+
+              </div>
+
+              <lucide-icon [img]="icons.ChevronRight"></lucide-icon>
+
+            </button>
+
+            <button class="bg-gradient-to-br from-[#00C853] to-[#00A843] rounded-2xl p-8 text-white flex items-center gap-4">
+
+              <lucide-icon [img]="icons.MessageCircle" class="w-8 h-8"></lucide-icon>
+
+              <div class="flex-1 text-left">
+
+                <h3 class="text-xl font-bold">Savol-javob</h3>
+
+                <p class="text-sm text-white/80">Chatda yordam oling</p>
+
+              </div>
+
+              <lucide-icon [img]="icons.ChevronRight"></lucide-icon>
+
+            </button>
+
+          </div>
+
+          <!-- MAIN BUTTONS -->
+
+          <div class="space-y-4">
+
+            @for(button of mainButtons; track button.id){
+
+            <button
+              class="w-full rounded-2xl p-6 text-white flex items-center gap-4 shadow-lg"
+              (click)="onOptionChosen()"
+              [class]="'bg-gradient-to-r ' + button.gradient"
+              (mouseenter)="hoveredButton.set(button.id)"
+              (mouseleave)="hoveredButton.set(null)"
+            >
+
+              <lucide-icon [img]="button.icon" class="w-6 h-6"></lucide-icon>
+
+              <span class="flex-1 text-left font-semibold">
+
+                {{button.text}}
+
+              </span>
+
+              <lucide-icon [img]="icons.ChevronRight"></lucide-icon>
+
+            </button>
+
+            }
+
+          </div>
+
+          <!-- GRID -->
+
+          <div class="grid md:grid-cols-2 gap-4">
+
+            @for(button of gridButtons; track button.id){
+
+            <button
+              class="border-2 rounded-2xl p-6 flex flex-col items-center gap-3 text-center"
+              [class]="button.color"
+            >
+
+              <lucide-icon [img]="button.icon" class="w-7 h-7 text-[#0A2647]"></lucide-icon>
+
+              <span class="font-semibold text-[#0A2647]">
+
+                {{button.text}}
+
+              </span>
+
+            </button>
+
+            }
+
+          </div>
+
+          <!-- bottom -->
+
+          <div class="flex justify-between pt-6 border-t">
+
+            <button class="flex items-center gap-2 font-semibold text-[#0A2647]">
+
+              <lucide-icon [img]="icons.MessageCircle"></lucide-icon>
+
+              Taklif va murojaat uchun
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>

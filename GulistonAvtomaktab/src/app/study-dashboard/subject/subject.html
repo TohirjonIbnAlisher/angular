@@ -1,0 +1,76 @@
+<div class="min-h-screen relative overflow-hidden bg-gray-50">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-white/30 shadow-lg px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 bg-gradient-to-br from-[#0A2647] to-[#003366] rounded-xl flex items-center justify-center shadow-lg">
+        <lucide-icon [img]="icons.Car" class="w-6 h-6 text-white"></lucide-icon>
+      </div>
+      <div>
+        <h1 class="font-bold text-xl text-[#0A2647]">Guliston Avtomaktab</h1>
+        <p class="text-xs text-gray-600">Nazariy mashg'ulot</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <label class="flex items-center gap-2 bg-white/60 rounded-xl px-3 py-2 shadow-md border border-white/50 cursor-pointer">
+        <input type="checkbox" [checked]="mixedMode()" (change)="mixedMode.set($any($event.target).checked)" class="w-4 h-4 text-[#00B140] border-gray-300 rounded cursor-pointer"/>
+        <span class="text-sm font-medium text-[#0A2647]">Aralash yechish</span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 max-w-[1440px] mx-auto px-4 py-8">
+    <!-- Motivational Badge -->
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#00B140] to-[#00C853] text-white px-6 py-3 rounded-full shadow-xl mb-4 animate-bounce">
+        <lucide-icon [img]="icons.Lightbulb" class="w-5 h-5 animate-pulse"></lucide-icon>
+        <span class="font-bold text-base sm:text-lg">Qaysi mavzuni o'rganmoqchisiz? Boshlaymiz!</span>
+      </div>
+      <p class="text-gray-700 text-sm sm:text-base font-medium">Mavzuni tanglang va mashg'ulotni boshlang</p>
+    </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bg-white p-6">
+  @for(topic of topics(); track topic.id) 
+  {
+    <div
+      [@fadeInUp]
+      (mouseenter)="hoveredCard.set(topic.id)"
+      (mouseleave)="hoveredCard.set(null)"
+      (click)="handleTopicClick(topic)"
+      class="group relative rounded-2xl p-6 sm:p-8 shadow-lg border-2 cursor-pointer overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex flex-col justify-center items-center text-center
+             bg-gradient-to-br from-green-50 to-green-100"
+      [class.border-[#00B140]]="hoveredCard() === topic.id"
+      [class.border-white/50]="hoveredCard() !== topic.id">
+
+      <!-- Glow Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#00B140]/20 to-[#00C853]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+
+      <!-- Icon -->
+      <div 
+        class="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 transform mb-4"
+        [ngClass]="hoveredCard() === topic.id ? 'bg-gradient-to-br from-[#00B140] to-[#00C853] shadow-lg shadow-green-500/50 scale-110 rotate-6' : 'bg-gradient-to-br from-[#0A2647] to-[#003366]'">
+        <lucide-icon [img]="topic.icon" class="w-7 h-7 text-white"></lucide-icon>
+      </div>
+
+      <!-- Topic Name -->
+      <h3 class="font-bold text-center leading-tight transition-colors duration-300 text-lg sm:text-xl lg:text-2xl"
+          [ngClass]="hoveredCard() === topic.id ? 'text-[#00B140]' : 'text-[#0A2647]'">
+        {{topic.name}}
+      </h3>
+
+      <!-- Bottom accent line -->
+      <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00B140] to-[#00C853] transform transition-transform duration-300"
+           [ngClass]="hoveredCard() === topic.id ? 'scale-x-100' : 'scale-x-0'"></div>
+
+    </div>
+  }
+</div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 text-center py-6 pb-8 bg-gradient-to-t from-white/80 to-transparent backdrop-blur-md">
+    <p class="text-sm text-gray-600">
+        <span class="font-bold text-[#0A2647]">Guliston Avtomaktab</span> © 2026 | O'zbekiston haydovchilik guvohnomasi tayyorlash tizimi. Barcha huquqlar himoyalangan.
+    </p>
+  </footer>
+</div>
